@@ -1,0 +1,1 @@
+		if (!bookName.includes("Great")) {
