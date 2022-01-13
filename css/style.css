@@ -1,0 +1,268 @@
+/* variables declared here - these are the colors for our pages, as well as the font stacks and sizes. */
+:root {
+    --black: #171321;
+    --dkblue: #0d314b;
+    --plum: #4b0d49;
+    --hotmag: #ff17e4;
+    --magenta: #e310cb;
+    --aqua: #86fbfb;
+    --white: #f7f8fa;
+    --font-size: 1.3rem;
+    --mono: "Oxygen mono", monospace;
+    --sans: Oxygen, sans-serif;
+}
+/* border box model: https://css-tricks.com/box-sizing/ */
+html {
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: var(--sans);
+    background-color: var(--black);
+    color: var(--white);
+}
+
+h1,h2,h3{
+    margin:0;    /* after making margin 0 still the texts are not collapsed over each other as initially paragraph tag, heading alll have 1 rem of margin but as margin of paragrapjh is still there due to which margin is still showing.Margin works diffrent in vertical direction rather than directly adding the bigger is chosen. Padding behaves as expectedd. only margin have some wiered exception in vertical direction.*/
+}
+
+a{
+    color:var(--magenta);
+}
+a:hover{
+    color: var(--hotmag);
+    text-decoration:none;
+}
+
+img{
+    width: 100%;
+}
+/* intro styles */
+#intro{
+    padding:4rem 1rem 10rem 1rem;
+    line-height:1.5;
+    max-width: 1200px;
+    min-height: 650px;
+    margin:0 auto;
+}
+
+#intro .name{
+    font-family: var(--mono);
+}
+.name span{
+    font-family: var(--sans);
+    font-size:4rem;
+    color:var(--aqua);
+    display:block;
+}
+#intro h2{
+    font-size: 4rem;
+    font-weight:normal;
+}
+#projects{
+    padding: 4rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.section-blue{
+    background-color: var(--dkblue);
+}
+
+#projects h2{
+    font-size: 2.5rem;
+    margin-bottom:calc(2.5rem* 1.5);
+}
+
+#projects h3{
+    color: var(--aqua);
+    font-size: 2rem;
+}
+
+#projects h4{
+    font-size:1rem;
+    font-family: var(--mono);
+    margin: 0;
+}
+.blackbox{
+    background-color:var(--black);
+    border-radius:1rem;
+    padding: 1.5rem;
+    line-height:1.5;
+    color:var(--white);
+}
+
+#projects ul{
+    list-style-type: none;
+    display: flex;
+    flex-flow:row wrap;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+}
+
+#projects img{
+    margin: 2rem 0rem 4rem 0rem;
+    padding: 1rem;
+    border-top: 1px solid var(--aqua);
+    border-left: 1px solid var(--aqua);
+    border-radius: 1rem;;
+}
+#contact{
+   
+    text-align: center;
+    margin:0 auto;
+    max-width:400px;
+    padding:3rem 0;
+    font-size: 18px;
+}
+
+.section-plum{
+    background-color: var(--plum);
+}
+
+.gradient{
+    background: linear-gradient(90deg, rgba(255,23,228,1) 35%, rgba(134,251,251,1) 68%);
+    height:2px;
+}
+
+#contact p:last-child{
+    margin-top:3rem;
+}
+
+nav{
+    font-family: var(--mono);
+    font-size: 100%;
+    padding: 3rem 1rem;
+    
+    
+    
+}
+nav [class*="fa-"]{
+    font-size: 150%;
+    color: var(--aqua);
+}
+nav h1 [class*="fa-"]{
+    font-size: 100%;
+    color: var(--aqua);
+}
+
+nav li:first-child{
+   flex-basis: 100%;
+   text-align:center;
+   border:2px dashed green;
+}
+nav h1 a{
+    font-family: var(--sans);
+}
+ 
+nav ul{
+    list-style-type:none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    
+}
+nav a{
+    color:var(--white);
+    text-decoration:none;
+    display: block;
+}
+nav a:hover, nav [class*="fa-"]:hover{
+    color: var(--magenta);
+}
+
+.button{
+   background-color: var(--magenta);
+   padding: 0.5rem;
+   color: var(--white);
+   border-radius: 5px;
+   font-family:var(--mono);
+    text-decoration:none;
+}
+.button:hover{
+    color: var(--white);
+    background-color:var(--hotmag);
+}
+
+@media (min-width:550px){
+    article{
+        display: grid;
+        grid-template-columns:repeat(20,1fr);
+        gap: 1rem;
+        margin:1rem 0;
+    }
+    #projects img {
+        grid-column: 1/10;
+        grid-row: 1/2;
+
+    }    
+    .text{
+        order:2;
+        grid-column:9/20;
+        grid-row: 1/2;
+        text-align: right;
+
+    }
+    #projects .reverse .text{
+        grid-column:1/10;
+        text-align: left;
+        grid-row: 1/2;
+    }
+
+    #projects .reverse img{
+        grid-column: 9/20;
+        grid-row: 1/2;
+    }
+    
+    #projects .reverse ul{
+        justify-content: flex-start;
+    }
+    #projects ul{
+        justify-content:flex-end;
+    }
+
+}
+
+@media (min-width:850px){
+    nav{
+        max-width: 1200px;
+        margin: 0 auto;
+        
+    }
+    nav li:first-child{
+        flex-basis:auto;
+        margin-right: auto;
+    }
+}
+
+footer{
+    height: 400px;
+    text-align: center;
+    padding:4rem 0;
+}
+footer ul{
+    
+    list-style-type:none;
+    padding: 0;
+    margin:2rem 0;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:center;
+    gap:3rem;
+    font-size:3rem;
+    
+}
+
